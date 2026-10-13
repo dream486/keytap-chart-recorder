@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "keys": 4,
+  "title": "示例 A · 多押与长条",
+  "bpm": 120,
+  "gridOffset": 0,
+  "duration": 24000,
+  "notes": [
+    {
+      "time": 2000,
+      "lane": 0
+    },
+    {
+      "time": 2500,
+      "lane": 1
+    },
+    {
+      "time": 3000,
+      "lane": 2
+    },
+    {
+      "time": 3500,
+      "lane": 3
+    },
+    {
+      "time": 4000,
+      "lane": 0
+    },
+    {
+      "time": 4500,
+      "lane": 1
+    },
+    {
+      "time": 5000,
+      "lane": 2
+    },
+    {
+      "time": 5500,
+      "lane": 3
+    },
+    {
+      "time": 6500,
+      "lane": 0
+    },
+    {
+      "time": 6500,
+      "lane": 3
+    },
+    {
+      "time": 8000,
+      "lane": 0
+    },
+    {
+      "time": 8000,
+      "lane": 1
+    },
+    {
+      "time": 8000,
+      "lane": 2
+    },
+    {
+      "time": 8000,
+      "lane": 3
+    },
+    {
+      "time": 10000,
+      "lane": 0,
+      "endTime": 12000
+    },
+    {
+      "time": 10500,
+      "lane": 2
+    },
+    {
+      "time": 11000,
+      "lane": 3
+    },
+    {
+      "time": 12500,
+      "lane": 1,
+      "endTime": 14000
+    },
+    {
+      "time": 15000,
+      "lane": 2,
+      "endTime": 17000
+    },
+    {
+      "time": 15000,
+      "lane": 3,
+      "endTime": 17000
+    },
+    {
+      "time": 18000,
+      "lane": 2
+    },
+    {
+      "time": 18500,
+      "lane": 3
+    },
+    {
+      "time": 19000,
+      "lane": 0
+    },
+    {
+      "time": 19500,
+      "lane": 1
+    },
+    {
+      "time": 20000,
+      "lane": 2
+    },
+    {
+      "time": 20500,
+      "lane": 3
+    },
+    {
+      "time": 21000,
+      "lane": 0
+    },
+    {
+      "time": 21500,
+      "lane": 1
+    }
+  ]
+}

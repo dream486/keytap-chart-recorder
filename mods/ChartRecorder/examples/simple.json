@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "keys": 4,
+  "title": "示例 A · 简化谱",
+  "bpm": 120,
+  "gridOffset": 0,
+  "duration": 24000,
+  "notes": [
+    {
+      "time": 2000,
+      "lane": 0
+    },
+    {
+      "time": 3500,
+      "lane": 3
+    },
+    {
+      "time": 5000,
+      "lane": 2
+    },
+    {
+      "time": 6500,
+      "lane": 3
+    },
+    {
+      "time": 8000,
+      "lane": 2
+    },
+    {
+      "time": 10500,
+      "lane": 2
+    },
+    {
+      "time": 15000,
+      "lane": 2,
+      "endTime": 17000
+    },
+    {
+      "time": 18500,
+      "lane": 3
+    },
+    {
+      "time": 20000,
+      "lane": 2
+    },
+    {
+      "time": 21500,
+      "lane": 1
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# Local dependencies, experiments and original game backups
+node_modules/
+artifacts/
+.tmp/
+CustomCharts/
+CustomChartMod/
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+
+# Optional third-party music and its generated Base64 wrapper
+assets/karma.mp3
+assets/karma-audio.js
+vendor/rhy-game/.git/
+
+# Historical bundles may contain music; only the clean current mod is shared
+dist/*
+!dist/MUSYNX-敲谱曲库-Mod-0.2.0.zip
+
+# Editor / OS local files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

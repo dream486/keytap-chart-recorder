@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "keys": 4,
+  "title": "KARMA / 上游示例片段",
+  "bpm": 132,
+  "gridOffset": 450,
+  "duration": 10428,
+  "audioId": "karma",
+  "notes": [
+    {
+      "lane": 3,
+      "time": 1359
+    },
+    {
+      "lane": 2,
+      "time": 1473
+    },
+    {
+      "lane": 1,
+      "time": 1586
+    },
+    {
+      "lane": 0,
+      "time": 1700
+    },
+    {
+      "lane": 1,
+      "time": 1814
+    },
+    {
+      "lane": 3,
+      "time": 2155
+    },
+    {
+      "lane": 2,
+      "time": 2268
+    },
+    {
+      "lane": 1,
+      "time": 2382
+    },
+    {
+      "lane": 0,
+      "time": 2495
+    },
+    {
+      "lane": 0,
+      "time": 2609
+    },
+    {
+      "lane": 2,
+      "time": 2609
+    },
+    {
+      "lane": 1,
+      "time": 2836
+    },
+    {
+      "lane": 1,
+      "time": 3064
+    },
+    {
+      "lane": 3,
+      "time": 3064
+    },
+    {
+      "lane": 2,
+      "time": 3291
+    },
+    {
+      "lane": 2,
+      "time": 3518
+    },
+    {
+      "lane": 3,
+      "time": 3745
+    },
+    {
+      "lane": 3,
+      "time": 3973
+    },
+    {
+      "lane": 2,
+      "time": 4086
+    },
+    {
+      "lane": 1,
+      "time": 4200
+    },
+    {
+      "lane": 0,
+      "time": 4314
+    },
+    {
+      "lane": 0,
+      "time": 4427
+    },
+    {
+      "lane": 2,
+      "time": 4427
+    },
+    {
+      "lane": 1,
+      "time": 4655
+    },
+    {
+      "lane": 1,
+      "time": 4882
+    },
+    {
+      "lane": 3,
+      "time": 4882
+    },
+    {
+      "lane": 2,
+      "time": 5109
+    },
+    {
+      "lane": 3,
+      "time": 5336
+    },
+    {
+      "lane": 2,
+      "time": 5564
+    },
+    {
+      "lane": 3,
+      "time": 5791
+    },
+    {
+      "lane": 2,
+      "time": 6018
+    },
+    {
+      "lane": 1,
+      "time": 6245
+    },
+    {
+      "lane": 0,
+      "time": 6473
+    },
+    {
+      "lane": 0,
+      "time": 6700,
+      "endTime": 7041
+    },
+    {
+      "lane": 3,
+      "time": 7041
+    },
+    {
+      "lane": 2,
+      "time": 7382
+    },
+    {
+      "lane": 3,
+      "time": 7609
+    },
+    {
+      "lane": 2,
+      "time": 7836
+    },
+    {
+      "lane": 1,
+      "time": 8064
+    },
+    {
+      "lane": 0,
+      "time": 8291
+    },
+    {
+      "lane": 0,
+      "time": 8518,
+      "endTime": 8859
+    },
+    {
+      "lane": 1,
+      "time": 8859
+    }
+  ]
+}

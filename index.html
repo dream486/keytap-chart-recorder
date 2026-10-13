@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FOUR / 4 键音游白模</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header><div class="brand">FOUR<span>4 KEY RHYTHM LAB</span></div><nav class="view-tabs"><button id="modePlay" class="active">游玩白模</button><button id="modeEditor">听歌打谱</button></nav><span class="badge">LOCAL · PROTOTYPE 02</span></header>
+<main id="playView">
+  <section class="setup panel">
+    <p class="eyebrow">01 / TRACK</p><h1>从四个键开始。</h1><p class="intro">音符落到白线时，按下对应按键。<br>一个可以继续生长的音游白模。</p>
+    <label for="chartSelect">练习谱面</label><select id="chartSelect"></select>
+    <div class="track-info"><span id="bpmInfo"></span><span id="noteInfo"></span><span id="durationInfo"></span></div>
+    <div class="divider"></div><p class="eyebrow">02 / SETUP</p>
+    <label for="speed">音符下落速度 <output id="speedValue">2.50×</output></label><input id="speed" type="range" min="0.4" max="3" step="0.05" value="2.5"><small id="speedHint">提前可见 1.44 秒 · 视野时长已翻倍，越大越快</small>
+    <label for="offset">判定偏移 <output id="offsetValue">0 ms</output></label><input id="offset" type="range" min="-200" max="200" step="5" value="0"><small>正数让音符到达判定线的时间延后。</small>
+    <label for="volume">音量 <output id="volumeValue">60%</output></label><input id="volume" type="range" min="0" max="1" step="0.05" value="0.6">
+    <label class="check"><input id="auto" type="checkbox"> 自动演示 <small>观看谱面，不记录成绩</small></label>
+    <button id="start" class="primary">开始练习 <span>↗</span></button><p class="hint">Space / Esc 暂停 · Q 放弃<br>F1 减速 / F2 加速</p>
+    <p id="message" role="status" aria-live="polite">已就绪 · 内置合成音乐，离线可玩</p>
+  </section>
+  <section class="play panel">
+    <div class="play-heading"><span id="state">READY</span><span id="songTitle">PULSE / 基础练习</span></div>
+    <div class="hud"><div><span>SCORE</span><strong id="score">0000000</strong></div><div><span>ACCURACY</span><strong id="accuracy">—</strong></div><div><span>MAX COMBO</span><strong id="maxCombo">0</strong></div></div>
+    <div class="play-controls"><button id="pause" disabled>暂停 / Esc</button><button id="restart" disabled>重新开始</button><button id="quit" class="quit" disabled>放弃 / Q</button><span id="liveSpeed">下落 2.50× · F1 / F2 调整</span></div>
+    <div class="stage"><canvas id="canvas" aria-label="四条音符轨道，按 D F J K 击打"></canvas><div id="overlay"><span class="eyebrow">D / F / J / K</span><h2 id="overlayTitle">准备好了吗？</h2><p id="overlayText">戴上耳机，从基础练习开始。</p></div><div class="keys"><button data-lane="0">D</button><button data-lane="1">F</button><button data-lane="2">J</button><button data-lane="3">K</button></div></div>
+    <div class="timeline"><div id="progress"></div></div><div class="play-footer"><span>SPACE / ESC 暂停 · Q 放弃 · F1 / F2 下落速度</span><span id="time">00:00 / 00:00</span></div>
+  </section>
+  <aside class="details panel"><p class="eyebrow">03 / FEEDBACK</p><h2>每一次击打。</h2><div id="judgement" aria-live="off">WAITING</div><p id="timing">等待第一颗音符</p><div class="combo"><strong id="combo">0</strong><span>COMBO</span></div><div class="judgements"><div><span>PERFECT <small>±45 ms</small></span><b id="perfectCount">0</b></div><div><span>GREAT <small>±90 ms</small></span><b id="greatCount">0</b></div><div><span>GOOD <small>±140 ms</small></span><b id="goodCount">0</b></div><div><span>MISS</span><b id="missCount">0</b></div></div>
+    <div class="divider"></div><p class="eyebrow">LOCAL FILES</p><label class="file-button">导入 JSON 谱面<input id="chartFile" type="file" accept=".json,application/json"></label><label class="file-button">选择本地音乐<input id="audioFile" type="file" accept="audio/*"></label><p id="audioName">使用内置合成音乐</p><button id="resetAudio">恢复谱面音乐</button><button id="export">导出当前谱面</button><p class="hint">自定义音乐搭配 JSON 谱面使用。<br>文件只在本机读取。</p>
+  </aside>
+</main>
+<main id="editorView" class="editor-layout" hidden>
+  <section class="panel editor-setup"><p class="eyebrow">RECORD / REFINE</p><h1>听着歌，敲出谱。</h1>
+    <label class="file-button">导入打谱歌曲<input id="editorAudio" type="file" accept="audio/*"></label><button id="editorKarma">载入 Karma 原谱与音乐</button><label class="file-button">导入已有谱面<input id="editorChart" type="file" accept=".json"></label><p id="editorSong" class="hint">先选择一首本地歌曲。</p>
+    <label for="editorTitle">谱面名称</label><input id="editorTitle" type="text" maxlength="100" value="我的谱面">
+    <div class="field-pair"><div><label for="editorBpm">BPM</label><input id="editorBpm" type="number" min="30" max="300" step="0.1" value="120"></div><div><label for="editorOffset">首拍位置 / ms</label><input id="editorOffset" type="number" step="1" value="0"></div></div>
+    <label for="editorGrid">节奏网格</label><select id="editorGrid"><option value="4">1/4 · 四分音符</option><option value="8">1/8 · 八分音符</option><option value="16" selected>1/16 · 十六分音符</option><option value="32">1/32 · 三十二分音符</option></select>
+    <label class="check"><input id="editorSnap" type="checkbox" checked> 录制 / 编辑吸附到网格</label><small>按住 ≥180 ms 录为长条；多键可同时录入。<br>首拍位置用于对齐歌曲实际节拍。</small>
+    <div class="divider"></div><p class="eyebrow">PUNCH IN / OUT</p><div class="field-pair"><div><label for="segmentIn">起点 / 秒</label><input id="segmentIn" type="number" min="0" step="0.1" value="0"></div><div><label for="segmentOut">终点 / 秒</label><input id="segmentOut" type="number" min="0" step="0.1" value="10"></div></div>
+    <label for="recordMode">这一段怎么录</label><select id="recordMode"><option value="append">追加音符</option><option value="replace">覆盖区间内音符</option></select>
+    <label for="editorRate">歌曲播放速度</label><select id="editorRate"><option value="0.25">0.25× · 四分之一速</option><option value="0.5">0.50× · 半速</option><option value="0.75">0.75× · 四分之三速</option><option value="1" selected>1.00× · 原速</option></select><small>录制、试听均使用此速度。慢放会降低音调；音符保存为原曲时间。</small>
+    <label class="check"><input id="editorMetronome" type="checkbox" checked> 录制时播放节拍器</label><label for="editorInputOffset">录入补偿 / ms</label><input id="editorInputOffset" type="number" min="-300" max="300" step="5" value="0"><small>正数会将录入音符提前，补偿敲击延迟。</small>
+    <button id="editorRecord" class="primary">开始分段录制 ●</button><div class="controls"><button id="editorListen">试听本段</button><button id="editorStop" disabled>停止 / Esc</button></div>
+  </section>
+  <section class="panel editor-timeline"><div class="play-heading"><span id="editorState">EDITING</span><span id="editorStats">0 NOTES</span></div><div class="editor-toolbar"><label for="editorTool">工具</label><select id="editorTool"><option value="select">选择 / 移动</option><option value="tap">添加单点</option><option value="hold">绘制长条</option><option value="delete">删除音符</option></select><button id="editorUndo">撤销</button><button id="editorRedo">重做</button><label for="editorZoom">缩放</label><select id="editorZoom"><option value="60">60 px / 秒</option><option value="100" selected>100 px / 秒</option><option value="180">180 px / 秒</option><option value="300">300 px / 秒</option></select></div>
+    <canvas id="editorCanvas" tabindex="0" aria-label="谱面编辑时间轴，横轴时间，四行对应 D F J K"></canvas>
+    <div class="editor-position"><button id="editorFollow">定位到播放头</button><input id="editorScroll" aria-label="时间轴起始位置" type="range" min="0" max="0" step="0.05" value="0"><span id="editorTime">00:00.000</span></div>
+    <p class="hint">选择后拖动音符可改时间 / 轨道，拖动长条尾部可改长度。点击上方时间标尺定位试听。方向键微调，Delete 删除，Ctrl+Z 撤销。</p>
+    <div class="editor-keys"><button data-record-lane="0">D</button><button data-record-lane="1">F</button><button data-record-lane="2">J</button><button data-record-lane="3">K</button></div>
+    <p id="editorMessage" role="status" aria-live="polite">导入歌曲后，设定 BPM 与首拍位置，再开始录制。每次录制有两拍准备时间。</p>
+    <div class="divider"></div><div class="editor-property"><div><label for="noteLane">选中音符 · 轨道</label><select id="noteLane"><option value="0">D</option><option value="1">F</option><option value="2">J</option><option value="3">K</option></select></div><div><label for="noteTime">起点 / ms</label><input id="noteTime" type="number" min="0" step="1"></div><div><label for="noteEnd">终点 / ms（留空为单点）</label><input id="noteEnd" type="number" min="0" step="1"></div><button id="noteApply">应用精修</button><button id="noteDelete">删除选中</button></div>
+    <div class="editor-actions"><button id="editorClear">清空谱面</button><button id="editorQuantize">按当前网格整理全部</button><button id="editorExport">导出谱面 JSON</button><button id="editorTest" class="primary">游玩测试本段 ↗</button></div>
+    <p class="hint">草稿自动保存在本浏览器（音频不保存）。音乐时钟驱动录入与试听；本阶段需手动填写 BPM，不自动分析歌曲。</p>
+  </section>
+</main><footer><span>FOUR / TAP + HOLD · RECORD + REFINE</span><span>本地运行 / 无外部资源</span></footer>
+<script src="vendor/judgement.js"></script><script src="src/core.js"></script><script src="charts/demo.js"></script><script src="charts/karma.js"></script><script src="src/optional-audio.js"></script><script src="src/audio.js"></script><script src="src/editor-core.js"></script><script src="src/app.js"></script><script src="src/editor.js"></script>
+</body></html>
